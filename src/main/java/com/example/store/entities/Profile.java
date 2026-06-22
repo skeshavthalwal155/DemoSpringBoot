@@ -7,7 +7,11 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@ToString
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "profiles")
 public class Profile {
     @Id
@@ -26,5 +30,11 @@ public class Profile {
 
     @Column(name = "loyalty_points")
     private int loyaltyPoints;
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    @ToString.Exclude
+    private User user;
 
 }
