@@ -18,14 +18,8 @@ public class StoreApplication {
                 .email("keshav@gmail.com")
                 .build();
 
-        var address =  Address.builder()
-                .street("street")
-                .city("city")
-                .state("state")
-                .zip("zip")
-                .build();
+        user.addTag("tag1");
 
-        user.addAddress(address);
         System.out.println(user);
     }
 }
