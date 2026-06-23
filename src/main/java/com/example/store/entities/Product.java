@@ -9,21 +9,22 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@Table(name="products")
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
     @Column(name = "price")
     private BigDecimal price;
 
-    @ManyToOne
-    @JoinColumn(name="category_id")
+    @ManyToOne()
+    @JoinColumn(name = "category_id")
     private Category category;
+
 
 }
