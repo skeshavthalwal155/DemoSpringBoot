@@ -6,13 +6,5 @@ spring:
     username: root
     password: 1234
 
-mail:
-  host: https://smtp.gmail.com
-  port: 5761
-
-logging:
-  level:
-    org:
-      springframework:
-        boot:
-          devtools: DEBUG
+jpa:
+  show-sql: true
