@@ -1,14 +1,16 @@
 package com.example.store.services;
 
 import com.example.store.entities.Address;
+import com.example.store.entities.Category;
+import com.example.store.entities.Product;
 import com.example.store.entities.User;
-import com.example.store.repositories.AddressRepository;
-import com.example.store.repositories.ProfileRepository;
-import com.example.store.repositories.UserRepository;
+import com.example.store.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @Transactional
@@ -18,6 +20,8 @@ public class UserService {
     private final ProfileRepository ProfileRepository;
     private final EntityManager entityManager;
     private final AddressRepository addressRepository;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
     public void showEntityStates(){
         var user = User.builder()
@@ -70,5 +74,10 @@ public class UserService {
         public void deleteRelated(){
         userRepository.deleteById(1L);
         }
+        @Transactional
+        public void manageProducts(){
+        }
+
+
 
 }
