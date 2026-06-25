@@ -2,7 +2,6 @@ package com.example.store.services;
 
 import com.example.store.entities.Address;
 import com.example.store.entities.Category;
-import com.example.store.entities.Product;
 import com.example.store.entities.User;
 import com.example.store.repositories.*;
 import jakarta.persistence.EntityManager;
@@ -88,9 +87,12 @@ public class UserService {
         }
 
         @Transactional
-        public void fetchUser(){
-            var user = userRepository.findByEmail("john.doe@example.com").orElseThrow();
-            System.out.println(user.getId());
+        public void fetchUsers(){
+            var users = userRepository.findAllWithAddresses();
+            users.forEach(user -> {
+                System.out.println(user);
+                user.getAddresses().forEach(System.out::println);
+            });
         }
 
 
