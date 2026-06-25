@@ -78,6 +78,10 @@ public class UserService {
         public void manageProducts(){
         }
 
+        public void updateProductPrices(){
+        productRepository.updatePriceByCategory(BigDecimal.valueOf(20), (byte)1);
+        }
+
 
 
 }
