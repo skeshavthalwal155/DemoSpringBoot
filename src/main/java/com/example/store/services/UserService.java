@@ -1,7 +1,6 @@
 package com.example.store.services;
 
 import com.example.store.entities.Address;
-import com.example.store.entities.Category;
 import com.example.store.entities.User;
 import com.example.store.repositories.*;
 import jakarta.persistence.EntityManager;
@@ -21,6 +20,7 @@ public class UserService {
     private final AddressRepository addressRepository;
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
+    private final ProfileRepository profileRepository;
 
     public void showEntityStates(){
         var user = User.builder()
@@ -94,6 +94,13 @@ public class UserService {
                 System.out.println(user);
                 user.getAddresses().forEach(System.out::println);
             });
+        }
+
+        @Transactional
+        public void printLoyalProfile(){
+            var users = userRepository.findLoyalUsers(2);
+            users.forEach(u->System.out.println(u.getId() + ": " + u.getEmail() ));
+
         }
 
 
